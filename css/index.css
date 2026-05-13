@@ -76,3 +76,16 @@ li {
     font-weight: bold;
     text-decoration: none;
 }
+
+
+#Experience ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#Experience li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
