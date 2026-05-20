@@ -89,3 +89,10 @@ li {
     justify-content: space-between;
     align-items: center;
 }
+
+#skills ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
