@@ -129,3 +129,30 @@ button {
         padding: 14px;
     }
 }
+button:hover {
+    background-color: lightgray;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid blue;
+}
+
+a:hover {
+    color: blue;
+}
+input:invalid,
+textarea:invalid {
+    border: 2px solid red;
+}
+
+input:valid,
+textarea:valid {
+    border: 2px solid green;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
