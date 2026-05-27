@@ -106,7 +106,9 @@ messageForm.addEventListener("submit", function (event) {
 
     removeButton.addEventListener("click", function () {
 
-        newMessage.remove();
+        const entry = removeButton.parentNode;
+
+         entry.remove();
 
         // Hide section if empty
         if (messageList.children.length === 0) {
