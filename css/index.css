@@ -96,3 +96,28 @@ li {
     list-style: none;
     padding: 0;
 }
+form {
+    margin: 20px 0;
+}
+
+input,
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#messages ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#messages li {
+    margin-bottom: 15px;
+}
