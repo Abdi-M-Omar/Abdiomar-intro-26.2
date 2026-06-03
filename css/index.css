@@ -96,3 +96,18 @@ li {
     list-style: none;
     padding: 0;
 }
+#Projects ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+#Projects li {
+  background-color: #f4f8fc;
+  border-left: 5px solid #0b5ed7;
+  border-radius: 6px;
+  padding: 10px 16px;
+  min-width: 150px;
+}

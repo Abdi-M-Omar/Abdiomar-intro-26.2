@@ -38,3 +38,30 @@ for (let i = 0; i < skills.length; i++) {
 
     skillsList.appendChild(skill);
 }
+// Fetch GitHub repositories
+fetch("https://api.github.com/users/Abdi-M-Omar/repos")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(repositories) {
+    console.log(repositories);
+
+    const projectSection = document.querySelector("#Projects");
+    const projectList = projectSection.querySelector("ul");
+
+    for (let i = 0; i < repositories.length; i++) {
+      const project = document.createElement("li");
+      project.innerText = repositories[i].name;
+      projectList.appendChild(project);
+    }
+  })
+  .catch(function(error) {
+    console.error("Error fetching repositories:", error);
+
+    const projectSection = document.querySelector("#Projects");
+    const projectList = projectSection.querySelector("ul");
+
+    const errorMsg = document.createElement("li");
+    errorMsg.innerText = "Could not load projects. Please try again later.";
+    projectList.appendChild(errorMsg);
+  });
