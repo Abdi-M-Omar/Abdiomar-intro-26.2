@@ -1,52 +1,69 @@
-// Create Footer
-const footer = document.createElement("footer");
-// Add footer to body
-document.body.appendChild(footer);
-// Get current year
+// ── Footer ──
+const footer = document.querySelector("footer");
 const today = new Date();
 const thisYear = today.getFullYear();
-
-// Select footer
-const footerElement = document.querySelector("footer");
-
-// Create paragraph
 const copyright = document.createElement("p");
+copyright.innerHTML = "© " + thisYear + " Abdi Omar — Built with HTML, CSS & JavaScript";
+footer.appendChild(copyright);
 
-// Add text
-copyright.innerHTML = "© Abdi Omar " + thisYear;
+// ── Hamburger Menu ──
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
 
-// Add paragraph to footer
-footerElement.appendChild(copyright);
-// Skills array
-const skills = [
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "React",
-    "GitHub"
-];
+hamburger.addEventListener("click", function () {
+  mobileMenu.classList.toggle("open");
+});
 
-const skillsSection = document.querySelector("#skills");
+mobileMenu.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    mobileMenu.classList.remove("open");
+  });
+});
 
-const skillsList = skillsSection.querySelector("ul");
+// ── Scroll Reveal Animation ──
+const revealElements = document.querySelectorAll(".section-inner, .experience-item, .education-item, .skill-group");
 
-for (let i = 0; i < skills.length; i++) {
+revealElements.forEach(function (el) {
+  el.classList.add("reveal");
+});
 
-    const skill = document.createElement("li");
+const observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
 
-    skill.innerText = skills[i];
+revealElements.forEach(function (el) {
+  observer.observe(el);
+});
 
-    skillsList.appendChild(skill);
-}
-// Fetch GitHub repositories
+// ── Navbar scroll effect ──
+const navbar = document.getElementById("navbar");
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 20) {
+    navbar.style.boxShadow = "0 2px 20px rgba(0,0,0,0.08)";
+  } else {
+    navbar.style.boxShadow = "none";
+  }
+});
+
+// ── Fetch GitHub Repositories ──
+const projectsLoading = document.getElementById("projects-loading");
+const projectsList = document.getElementById("projects-list");
+
 fetch("https://api.github.com/users/Abdi-M-Omar/repos")
-  .then(function(response) {
+  .then(function (response) {
     return response.json();
   })
-  .then(function(repositories) {
+  .then(function (repositories) {
     console.log(repositories);
 
-    const projectSection = document.querySelector("#Projects");
+    projectsLoading.style.display = "none";
+
+    const projectSection = document.querySelector("#projects");
     const projectList = projectSection.querySelector("ul");
 
     for (let i = 0; i < repositories.length; i++) {
@@ -55,13 +72,16 @@ fetch("https://api.github.com/users/Abdi-M-Omar/repos")
       projectList.appendChild(project);
     }
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.error("Error fetching repositories:", error);
 
-    const projectSection = document.querySelector("#Projects");
+    projectsLoading.style.display = "none";
+
+    const projectSection = document.querySelector("#projects");
     const projectList = projectSection.querySelector("ul");
 
     const errorMsg = document.createElement("li");
     errorMsg.innerText = "Could not load projects. Please try again later.";
+    errorMsg.classList.add("error");
     projectList.appendChild(errorMsg);
   });
