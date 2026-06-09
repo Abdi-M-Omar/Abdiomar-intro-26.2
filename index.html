@@ -1,129 +1,202 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Abdi Omar Portfolio</title>
-
-    <meta charset="UTF-8">
-    <meta name="description" content="Portfolio page for Abdi Omar">
-
-    <link rel="stylesheet" href="css/index.css">
+  <title>Abdi Omar — Software Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Abdi Omar — Software Developer & Data Engineering enthusiast">
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <nav>
-        <a href="#About">About</a>
-        <a href="#Experience">Experience</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Connect">Connect</a>
-        <a href="#leave-message">Leave a Message</a>
-    </nav>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">AO</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#connect">Connect</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </nav>
 
-    <h1>Abdi Omar</h1>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="avatar" aria-label="Abdi Omar initials">A.O</div>
+      <div class="hero-text">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1>Abdi Omar</h1>
+        <p class="hero-tagline">Software Developer <span class="dot">·</span> Data Engineering</p>
+        <p class="hero-bio">Computer Science graduate passionate about building clean, impactful software and data-driven solutions.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#connect" class="btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">↓</div>
+  </header>
 
-    <section id="About">
-        <h2>About</h2>
+  <main>
 
-        <p>
-            I am a computer science student interested in software development,
-            digital marketing, and web development.
-        </p>
+    <section id="about" class="section">
+      <div class="section-inner">
+        <div class="section-label">01 / About</div>
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <p>I'm a Computer Science graduate from Saint Paul College with a strong foundation in software development and a growing passion for data engineering. I enjoy solving real-world problems through code, whether that's building web applications or working with data pipelines.</p>
+          <p>With experience in digital marketing and content creation, I bring a unique perspective that bridges technical and creative thinking. I'm currently looking for opportunities in software development and data engineering.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="Experience">
+    <section id="experience" class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">02 / Experience</div>
         <h2>Experience</h2>
-
-        <ul>
-            <li>Computer Science student at Saint Paul College</li>
-            <li>Learning HTML, CSS, JavaScript, and React</li>
-            <li>Digital marketing and content creation experience</li>
-        </ul>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="exp-icon">💻</div>
+            <div class="exp-content">
+              <h3>Computer Science Student</h3>
+              <span class="exp-place">Saint Paul College</span>
+              <p>Studied core CS principles including algorithms, data structures, web development, and software engineering fundamentals.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="exp-icon">📊</div>
+            <div class="exp-content">
+              <h3>Digital Marketing & Content Creation</h3>
+              <span class="exp-place">Independent</span>
+              <p>Created and managed digital marketing campaigns, developed content strategies, and applied data analytics to measure performance.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="exp-icon">🌐</div>
+            <div class="exp-content">
+              <h3>Web Development</h3>
+              <span class="exp-place">Self-directed Projects</span>
+              <p>Built responsive web applications using HTML, CSS, JavaScript, and React. Integrated third-party APIs and managed version control with Git and GitHub.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="skills">
-    <h2>Skills</h2>
-    <ul></ul>
-</section>
-     
+    <section id="skills" class="section">
+      <div class="section-inner">
+        <div class="section-label">03 / Skills</div>
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h4>Frontend</h4>
+            <div class="skill-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Backend & Data</h4>
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Data Analysis</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Tools & Other</h4>
+            <div class="skill-tags">
+              <span class="tag">GitHub</span>
+              <span class="tag">Git</span>
+              <span class="tag">Digital Marketing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="Projects">
+    <section id="projects" class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">04 / Projects</div>
         <h2>Projects</h2>
+        <div id="projects-loading" class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading repositories...</p>
+        </div>
+        <ul id="projects-list"></ul>
+      </div>
+    </section>
 
-        <ul>
+    <section id="education" class="section">
+      <div class="section-inner">
+        <div class="section-label">05 / Education</div>
+        <h2>Education</h2>
+        <div class="education-list">
+          <div class="education-item">
+            <div class="edu-year">2024</div>
+            <div class="edu-content">
+              <h3>A.A.S. Computer Science</h3>
+              <span class="edu-place">Saint Paul College — Saint Paul, MN</span>
+              <p>Associate of Applied Science in Computer Science. Coursework in software development, web development, databases, and programming fundamentals.</p>
+            </div>
+          </div>
+          <div class="education-item">
+            <div class="edu-year">2024</div>
+            <div class="edu-content">
+              <h3>Digital Marketing Certificate</h3>
+              <span class="edu-place">University of Minnesota — Minneapolis, MN</span>
+              <p>Professional certificate covering digital marketing strategy, SEO, content marketing, analytics, and social media management.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect" class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">06 / Connect</div>
+        <h2>Let's Connect</h2>
+        <p class="connect-intro">I'm open to new opportunities in software development and data engineering. Feel free to reach out!</p>
+        <ul class="connect-list">
+          <li>
+            <a href="https://github.com/Abdi-M-Omar" target="_blank" class="connect-link">
+              <span class="connect-icon">⌥</span>
+              <span>GitHub</span>
+              <span class="connect-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/abdi-omar2220/" target="_blank" class="connect-link">
+              <span class="connect-icon">in</span>
+              <span>LinkedIn</span>
+              <span class="connect-arrow">→</span>
+            </a>
+          </li>
         </ul>
+      </div>
     </section>
 
-    <section id="Connect">
-        <h2>Connect</h2>
+  </main>
 
-        <ul>
-            <li>
-                <a href="https://github.com/Abdi-M-Omar" target="_blank">
-                    GitHub
-                </a>
-            </li>
+  <footer id="footer"></footer>
 
-            <li>
-                <a href="https://www.linkedin.com/in/abdi-omar2220/" target="_blank">
-                    LinkedIn
-                </a>
-            </li>
-        </ul>
-    </section>
-     <!-- Leave a Message Section -->
-    <section id="leave-message">
-
-        <h2>Leave a Message</h2>
-
-        <form name="leave_message">
-
-            <label for="usersName">Name:</label>
-            <input
-                type="text"
-                name="usersName"
-                id="usersName"
-                required
-            >
-
-            <br><br>
-
-            <label for="usersEmail">Email:</label>
-            <input
-                type="email"
-                name="usersEmail"
-                id="usersEmail"
-                required
-            >
-
-            <br><br>
-
-            <label for="usersMessage">Message:</label>
-
-            <textarea
-                name="usersMessage"
-                id="usersMessage"
-                required
-            ></textarea>
-
-            <br><br>
-
-            <button type="submit">Submit</button>
-
-        </form>
-
-    </section>
-
-    <!-- Messages Section -->
-    <section id="messages">
-
-        <h2>Messages</h2>
-
-        <ul></ul>
-
-    </section>
-<script src="js/index.js"></script>
+  <script src="js/index.js"></script>
 </body>
-
 </html>
