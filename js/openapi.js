@@ -1,62 +1,37 @@
-/*
-  Select buttons and elements from the page
-  so JavaScript can update them dynamically.
-*/
+// Buttons and elements used to display weather information
 const tempBtn = document.getElementById("tempBtn");
 const conditionBtn = document.getElementById("conditionBtn");
 const weatherTitle = document.getElementById("weatherTitle");
 const weatherResult = document.getElementById("weatherResult");
 
-/*
-  Minneapolis latitude and longitude.
-  Open-Meteo requires coordinates instead
-  of city names.
-*/
+// Coordinates for Minneapolis, Minnesota
 const latitude = 44.9778;
 const longitude = -93.2650;
 
-/*
-  Open-Meteo API URL.
-
-  Request #1:
-  Current temperature
-
-  Request #2:
-  Current weather code
-
-  These satisfy the assignment requirement
-  to retrieve two different pieces of data.
-*/
+// Open-Meteo API endpoint
+// Gets the current temperature and weather code
 const apiUrl =
   `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&temperature_unit=fahrenheit`;
 
-/*
-  Variable used to store API data after
-  it is retrieved.
-*/
+// Stores weather data after it is fetched from the API
 let weatherData = null;
 
-/*
-  Fetch weather information from the API.
-
-  async/await allows us to wait for the
-  API response before using the data.
-*/
+// Fetch weather data from Open-Meteo
 async function getWeatherData() {
   try {
 
-    // Send request to Open-Meteo
+    // Send request to the API
     const response = await fetch(apiUrl);
 
-    // Convert JSON response into JavaScript object
+    // Convert response to JavaScript object
     const data = await response.json();
 
-    // Save current weather data
+    // Save current weather information
     weatherData = data.current;
 
   } catch (error) {
 
-    // Display message if API request fails
+    // Show an error message if the request fails
     weatherResult.textContent =
       "Sorry, weather data could not be loaded.";
 
@@ -64,10 +39,7 @@ async function getWeatherData() {
   }
 }
 
-/*
-  Convert Open-Meteo weather codes into
-  human-readable weather descriptions.
-*/
+// Convert weather codes into readable weather conditions
 function getWeatherCondition(code) {
 
   if (code === 0) return "Clear Sky";
@@ -87,52 +59,35 @@ function getWeatherCondition(code) {
   return "Unknown Condition";
 }
 
-/*
-  Temperature button event listener.
-
-  Displays current temperature when clicked.
-*/
+// Show the current temperature when the button is clicked
 tempBtn.addEventListener("click", async () => {
 
-  // Load data if not already loaded
+  // Get data if it has not been loaded yet
   if (!weatherData) {
     await getWeatherData();
   }
 
-  // Update page title
   weatherTitle.textContent =
     "Current Temperature";
 
-  // Display temperature
   weatherResult.textContent =
     `${weatherData.temperature_2m}°F`;
 });
 
-/*
-  Weather Condition button event listener.
-
-  Displays current weather condition
-  when clicked.
-*/
+// Show the current weather condition when the button is clicked
 conditionBtn.addEventListener("click", async () => {
 
-  // Load data if not already loaded
+  // Get data if it has not been loaded yet
   if (!weatherData) {
     await getWeatherData();
   }
 
-  // Update page title
   weatherTitle.textContent =
     "Current Weather Condition";
 
-  // Convert weather code into readable text
   weatherResult.textContent =
     getWeatherCondition(weatherData.weather_code);
 });
 
-/*
-  Automatically fetch weather data when
-  page loads so information is ready when
-  user clicks a button.
-*/
+// Load weather data when the page first opens
 getWeatherData();
