@@ -1,4 +1,10 @@
 // ── Footer ──
+/*
+  Select the footer element from the page.
+  We will dynamically add the current year so
+  the copyright stays updated automatically.
+*/
+
 const footer = document.querySelector("footer");
 const today = new Date();
 const thisYear = today.getFullYear();
@@ -7,6 +13,11 @@ copyright.innerHTML = "© " + thisYear + " Abdi Omar — Built with HTML, CSS & 
 footer.appendChild(copyright);
 
 // ── Hamburger Menu ──
+/*
+  Get references to the hamburger button
+  and the mobile navigation menu.
+
+*/
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 
@@ -20,12 +31,26 @@ mobileMenu.querySelectorAll("a").forEach(function (link) {
   });
 });
 
-// ── Scroll Reveal Animation ──
+/*
+  Select all sections that should animate
+  into view as the user scrolls down the page.
+   Add the "reveal" class to each selected element.
+
+  The CSS associated with this class usually
+  hides the element or positions it slightly
+  off-screen before animation begins.
+*/
 const revealElements = document.querySelectorAll(".section-inner, .experience-item, .education-item, .skill-group");
 
 revealElements.forEach(function (el) {
   el.classList.add("reveal");
 });
+/*
+  Create an IntersectionObserver.
+
+  This browser API watches elements and
+  detects when they enter the viewport.
+*/
 
 const observer = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
@@ -40,6 +65,10 @@ revealElements.forEach(function (el) {
   observer.observe(el);
 });
 
+/*
+  Get the navigation bar element.
+*/
+
 // ── Navbar scroll effect ──
 const navbar = document.getElementById("navbar");
 window.addEventListener("scroll", function () {
@@ -49,6 +78,16 @@ window.addEventListener("scroll", function () {
     navbar.style.boxShadow = "none";
   }
 });
+
+/*
+  Get references to:
+
+  1. The loading message shown while
+     repositories are being fetched.
+
+  2. The list where repository names
+     will be displayed.
+*/
 
 // ── Fetch GitHub Repositories ──
 const projectsLoading = document.getElementById("projects-loading");
@@ -72,6 +111,13 @@ fetch("https://api.github.com/users/Abdi-M-Omar/repos")
       projectList.appendChild(project);
     }
   })
+  /*
+      Handle any errors such as:
+      - No internet connection
+      - GitHub API unavailable
+      - Invalid username
+    */
+
   .catch(function (error) {
     console.error("Error fetching repositories:", error);
 
