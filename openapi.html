@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Helps the page fit different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Open-Meteo Weather API</title>
+
+  <!-- CSS for this weather page -->
+  <link rel="stylesheet" href="css/openapi.css" />
+</head>
+<body>
+
+  <main class="weather-container">
+
+    <h1>Weather API Dashboard</h1>
+
+    <p>
+      This page shows current weather information for Minneapolis
+      using the Open-Meteo API.
+    </p>
+
+    <!-- Buttons let the user choose what weather data to see -->
+    <div class="buttons">
+      <button id="tempBtn">
+        Show Temperature
+      </button>
+
+      <button id="conditionBtn">
+        Show Weather Condition
+      </button>
+    </div>
+
+    <!-- Weather result displays here -->
+    <section class="weather-card">
+      <h2 id="weatherTitle">
+        Click a button
+      </h2>
+
+      <p id="weatherResult">
+        Weather data will appear here.
+      </p>
+    </section>
+
+    <!-- Link back to my portfolio home page -->
+    <a href="index.html" class="home-link">
+      Back to Home
+    </a>
+
+  </main>
+
+  <script src="js/openapi.js"></script>
+
+</body>
+</html>
