@@ -131,3 +131,61 @@ fetch("https://api.github.com/users/Abdi-M-Omar/repos")
     errorMsg.classList.add("error");
     projectList.appendChild(errorMsg);
   });
+
+  // ── Leave a Message ──
+const messageForm = document.getElementById("message-form");
+const messagesSection = document.getElementById("messages-section");
+const messagesList = document.getElementById("messages-list");
+
+messageForm.addEventListener("submit", function (event) {
+  // Prevent the page from reloading on submit
+  event.preventDefault();
+
+  // Get values from each form field
+  const name = document.getElementById("msg-name").value.trim();
+  const email = document.getElementById("msg-email").value.trim();
+  const text = document.getElementById("msg-text").value.trim();
+
+  // Don't add empty messages
+  if (!name || !email || !text) return;
+
+  // Create the list item for this message
+  const li = document.createElement("li");
+
+  // Author name as a mailto: link
+  const authorDiv = document.createElement("div");
+  authorDiv.classList.add("msg-author");
+  const authorLink = document.createElement("a");
+  authorLink.href = "mailto:" + email;
+  authorLink.textContent = name;
+  authorDiv.appendChild(authorLink);
+
+  // Message text
+  const msgText = document.createElement("p");
+  msgText.classList.add("msg-text");
+  msgText.textContent = text;
+
+  // Remove button
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove";
+  removeBtn.classList.add("msg-remove");
+  removeBtn.addEventListener("click", function () {
+    li.remove();
+    // Hide the messages section if no messages remain
+    if (messagesList.children.length === 0) {
+      messagesSection.style.display = "none";
+    }
+  });
+
+  // Assemble and add the message item
+  li.appendChild(authorDiv);
+  li.appendChild(msgText);
+  li.appendChild(removeBtn);
+  messagesList.appendChild(li);
+
+  // Show the messages section
+  messagesSection.style.display = "block";
+
+  // Clear the form fields
+  messageForm.reset();
+});
